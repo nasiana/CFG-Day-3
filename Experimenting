@@ -1,0 +1,26 @@
+use bakery
+
+-- experimenting with sum
+use bakery
+select sum(sw.price)
+from sweet sw;
+
+-- experimenting with max
+use bakery
+select max(sw.id)
+from sweet sw;
+
+-- experimenting with min
+use customers
+select min(c.customer_id)
+from customer c;
+
+-- experimenting with count
+use customers
+select count(c.first_name)
+from customer c;
+
+-- experimenting with average
+use bakery
+select avg(sw.price)
+from sweet sw;
