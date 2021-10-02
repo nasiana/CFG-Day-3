@@ -9,6 +9,8 @@ like 'c%';
 -- find all savoury items that cost more than £1, but less than £3
 select sv.item_name, sv.price
 from savoury sv
+-- this is the way to be mathematically rigorous
 where sv.price > 1 and sv.price < 3;
--- BETWEEN 1 AND 3;
+-- using 'BETWEEN 1 AND 3' returns values including 1 and 3
+-- can do 'BETWEEN 1.01 AND 2.99', Hassan said we can but i'm a Physicist and this isn't mathematically rigorous
 
