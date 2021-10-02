@@ -1,0 +1,9 @@
+USE world;
+
+-- AND
+select c.name, c.IndepYear, c.LifeExpectancy
+from country c
+where c.IndepYear < 1950
+and c.LifeExpectancy > 80;
+
+-- OR
