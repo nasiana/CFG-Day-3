@@ -7,3 +7,7 @@ where c.IndepYear < 1950
 and c.LifeExpectancy > 80;
 
 -- OR
+select c.name, c.IndepYear, c.SurfaceArea
+from country c
+where c.IndepYear < 1950
+or c.SurfaceArea > 320000;
