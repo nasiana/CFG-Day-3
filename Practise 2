@@ -1,0 +1,6 @@
+use bakery;
+
+select sy.item_name, sy.main_ingredient
+from savoury sy
+where main_ingredient = 'pork'
+or main_ingredient = 'beef';
