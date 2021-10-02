@@ -1,14 +1,17 @@
 use bakery;
 
+-- Find all savoury items
 select sy.item_name, sy.main_ingredient
 from savoury sy
 where sy.main_ingredient = 'pork'
 or sy.main_ingredient = 'beef';
 
+-- Find all sweet items that cost 50 cents or cheaper
 select st.item_name, st.price
 from sweet st
 where st.price <= 0.50;
 
+-- Find all sweet items and their price, except for 'cannoli'
 select st.item_name, st.price
 from sweet st
 where st.item_name != 'cannoli';
