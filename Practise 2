@@ -2,12 +2,12 @@ use bakery;
 
 select sy.item_name, sy.main_ingredient
 from savoury sy
-where main_ingredient = 'pork'
-or main_ingredient = 'beef';
+where sy.main_ingredient = 'pork'
+or sy.main_ingredient = 'beef';
 
 select st.item_name, st.price
 from sweet st
-where price <= 0.50;
+where st.price <= 0.50;
 
 select st.item_name, st.price
 from sweet st
