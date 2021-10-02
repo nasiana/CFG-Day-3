@@ -1,7 +1,20 @@
 -- sum a column		
 use world
+-- 'sum' will return the value of the sum of all the values in a given column
 SELECT sum(c.population)
 from country c;
 
--- add some data 
+-- count number of customers
 use customers
+-- 'count' will count all the values in a given column 
+SELECT count(c.customer_id)
+from customer c;
+
+-- count number of customers called john
+SELECT COUNT(c.customer_id)
+from customer c 
+where c.first_name = 'Jon';
+
+-- count number of unique first names
+select count(distinct c.first_name)
+from customer c;
