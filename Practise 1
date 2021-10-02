@@ -11,3 +11,8 @@ select c.name, c.IndepYear, c.SurfaceArea
 from country c
 where c.IndepYear < 1950
 or c.SurfaceArea > 320000;
+
+-- is (NOT) NULL
+select c.Name, c.Capital
+from country c
+where c.Capital is not null;
