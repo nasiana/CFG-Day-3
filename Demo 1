@@ -1,0 +1,5 @@
+-- group by function 
+use world;
+select c.Countrycode, SUM(c.Population)
+from city c 
+group by c.CountryCode;
