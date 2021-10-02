@@ -1,0 +1,7 @@
+-- sum a column		
+use world
+SELECT sum(c.population)
+from country c;
+
+-- add some data 
+use customers
