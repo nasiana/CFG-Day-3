@@ -4,3 +4,7 @@ select sy.item_name, sy.main_ingredient
 from savoury sy
 where main_ingredient = 'pork'
 or main_ingredient = 'beef';
+
+select st.item_name, st.price
+from sweet st
+where price <= 0.50;
