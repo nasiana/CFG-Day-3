@@ -1,0 +1,13 @@
+use bakery
+
+-- find all sweet items that start with the letter 'c'
+select sw.item_name
+from sweet sw
+where sw.item_name
+like 'c%';
+
+-- find all savoury items that cost more than £1, but less than £3
+select sv.item_name, sv.price
+from savoury sv
+where sv.price
+BETWEEN 1 AND 3;
