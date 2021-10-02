@@ -9,5 +9,6 @@ like 'c%';
 -- find all savoury items that cost more than £1, but less than £3
 select sv.item_name, sv.price
 from savoury sv
-where sv.price
-BETWEEN 1 AND 3;
+where sv.price > 1 and sv.price < 3;
+-- BETWEEN 1 AND 3;
+
