@@ -8,3 +8,7 @@ or main_ingredient = 'beef';
 select st.item_name, st.price
 from sweet st
 where price <= 0.50;
+
+select st.item_name, st.price
+from sweet st
+where st.item_name != 'cannoli';
