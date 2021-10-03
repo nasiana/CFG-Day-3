@@ -74,7 +74,6 @@ group by s.Week
 order by s.SalesAmount asc;
 
 -- how many sales took place each week by descending order 
--- as we were grouping by s.Week, we didn't need to count by S.week
 select s.Week, count(*)
 from sales1 s
 group by s.Week
@@ -91,3 +90,34 @@ select s.Week, count(s.Week)
 from sales1 s
 group by s.Week
 order by s.Week asc;
+
+-- which week resulted in the most sales in terms of dollar amounts
+select MAX(s.SalesAmount), s.Week, s.Month
+from sales1 s;
+
+--
+select * from sales1;
+-- which weeks of the month resulted in the most sales in terms of dollar amounts
+select s.week, sum(s.SalesAmount) as 'Sales'
+from sales1 s
+group by S.week
+order by Sales ASC;
+
+--
+select * from sales1 s;
+-- excluding saturdays, which Sales People had the most number of sales (count)?
+select count(*) as 'Frequency_of_Sales', s.SalesPerson
+from sales1 s
+where s.Day != 'Saturday'
+group by s.SalesPerson
+order by Frequency_of_Sales;
+
+
+-- 
+select * from sales1;
+-- of these, who had sales greater than 150?
+select count(*) as 'Frequency_of_Sales', s.SalesPerson, SUM(s.SalesAmount) as 'Total_Sales'
+from sales1 s
+where s.Day != 'Saturday' 
+group by s.SalesPerson
+having Total_Sales > 150;
