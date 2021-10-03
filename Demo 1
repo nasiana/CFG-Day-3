@@ -1,5 +1,8 @@
--- group by function 
 use world;
-select c.Countrycode, SUM(c.Population)
+-- set the alias for the 'SUM(c.Population)' column as 'Population'
+select c.Countrycode, SUM(c.Population) As 'Population'
 from city c 
-group by c.CountryCode;
+group by c.CountryCode
+-- as this group by is operating on a group, can't use the 'where' clause as that is for singular entities
+-- must use the 'having' clause which is intended for groups
+having Population > 1000000;
