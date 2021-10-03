@@ -40,3 +40,30 @@ group by s.SalesPerson;
 select min(s.SalesAmount), s.SalesPerson
 from sales1 s
 group by s.SalesPerson;
+
+
+-- find all sales records (and all columns) that took place in the London store, not in December, but sales concluded by Bill or Frank for amount higher than £50
+select *
+from sales1 s
+where s.Store = 'London' AND s.Month != 'Dec'
+AND (s.SalesPerson = 'Bill' or s.SalesPerson = 'Frank')
+and s.SalesAmount > 50;
+
+-- find all sales records (and all columns) that took place in the London store, not in December, but sales concluded by Bill or Frank for amount higher than £50
+-- uses IN clause
+select *
+from sales1 s
+where s.Store = 'London' AND s.Month != 'Dec'
+AND s.SalesPerson IN ('Frank', 'Bill')
+and s.SalesAmount > 50;
+
+-- how many sales took place each week (in no particular order)
+select count(s.Week), s.Week
+from sales1 s
+group by s.Week;
+
+-- how many sales took place each week by descending order
+select count(s.Week), s.Week, s.SalesAmount
+from sales1 s
+group by s.Week
+and order by s.SalesAmount desc ;
