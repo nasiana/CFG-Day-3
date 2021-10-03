@@ -58,7 +58,7 @@ AND s.SalesPerson IN ('Frank', 'Bill')
 and s.SalesAmount > 50;
 
 -- how many sales took place each week (in no particular order)
-select count(s.Week), s.Week
+select count(*), s.Week, s.Month
 from sales1 s
 group by s.Week;
 
