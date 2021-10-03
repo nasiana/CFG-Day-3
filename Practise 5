@@ -41,7 +41,6 @@ select min(s.SalesAmount), s.SalesPerson
 from sales1 s
 group by s.SalesPerson;
 
-
 -- find all sales records (and all columns) that took place in the London store, not in December, but sales concluded by Bill or Frank for amount higher than £50
 select *
 from sales1 s
@@ -62,8 +61,33 @@ select count(*), s.Week, s.Month
 from sales1 s
 group by s.Week;
 
--- how many sales took place each week by descending order
-select count(s.Week), s.Week, s.SalesAmount
+-- how many sales took place each week by descending order of sales amount
+select count(*), s.Week, s.SalesAmount
 from sales1 s
 group by s.Week
-and order by s.SalesAmount desc ;
+order by s.SalesAmount desc ;
+
+-- how many sales took place each week by ascending order of sales amount
+select count(*), s.Week, s.SalesAmount
+from sales1 s
+group by s.Week
+order by s.SalesAmount asc;
+
+-- how many sales took place each week by descending order 
+-- as we were grouping by s.Week, we didn't need to count by S.week
+select s.Week, count(*)
+from sales1 s
+group by s.Week
+order by s.Week desc ;
+
+-- how many sales took place each week by ascending order
+select s.Week, count(*)
+from sales1 s
+group by s.Week
+order by s.Week asc ;
+
+-- how many sales took place each week by ascending order
+select s.Week, count(s.Week)
+from sales1 s
+group by s.Week
+order by s.Week asc;
