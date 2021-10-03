@@ -1,0 +1,10 @@
+-- write a number of queries to analyse salaes data and 'report it back to our big bosses'
+
+use shop
+-- show everything in sales1 table
+select * from sales1;
+
+-- group the shops by the store location and show total sales
+select SUM(s.SalesAmount) as 'Sales', s.Store
+from sales1 s
+group by s.Store;
