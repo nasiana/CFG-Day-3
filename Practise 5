@@ -1,4 +1,4 @@
--- write a number of queries to analyse salaes data and 'report it back to our big bosses'
+-- write a number of queries to analyse sales data and 'report it back to our big bosses'
 
 use shop
 -- show everything in sales1 table
@@ -8,3 +8,35 @@ select * from sales1;
 select SUM(s.SalesAmount) as 'Sales', s.Store
 from sales1 s
 group by s.Store;
+
+-- group the data by Sales, Store location and Month
+select AVG(s.SalesAmount) as 'Sales', s.Store, s.Month
+from sales1 s
+group by s.Month;
+
+-- select sales in a range of 30 and 70 then group by store location
+select s.SalesAmount as 'Sales', s.Store
+from sales1 s
+WHERE s.SalesAmount BETWEEN 30 AND 70
+GROUP BY s.Store;
+
+-- shows the total sales  per Sales Person and how many sales they made each
+select sum(s.SalesAmount) as 'Sales', COUNT(s.SalesPerson) as 'Frequency', s.SalesPerson
+from sales1 s
+GROUP BY s.SalesPerson;
+
+-- shows the total sales  per Sales Person and how many sales they made each, where the sales are in the range of 40 <= x <= 70
+select sum(s.SalesAmount) as 'Sales', COUNT(s.SalesPerson) as 'Frequency', s.SalesPerson
+from sales1 s
+WHERE s.SalesAmount BETWEEN 40 AND 70
+GROUP BY s.SalesPerson;
+
+-- Find the  max sales amount that each sales person made
+select max(s.SalesAmount), s.SalesPerson
+from sales1 s
+group by s.SalesPerson;
+
+-- Find the  min sales amount that each sales person made
+select min(s.SalesAmount), s.SalesPerson
+from sales1 s
+group by s.SalesPerson;
